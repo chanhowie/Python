@@ -17,3 +17,4 @@ str.endswith    str.islower     str.partition   str.split       str.zfill
 str.expandtabs  str.isspace     str.replace     str.splitlines  
 str.find        str.istitle     str.rfind       str.startswith  
 """
+
