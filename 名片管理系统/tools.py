@@ -5,6 +5,9 @@ seredlist = []
 
 
 def show():
+    """
+   菜单栏
+    """
     strlist = ["", "欢迎使用名片管理系统",
                "请选择功能",
                "①：增加名片",
@@ -65,13 +68,18 @@ def deal(seredlist):
             for i in reversed(seredlist): #倒序删除，防止删错位置
                 del namecard[i]
         if resec =="2":
-            modify=True
             for i in reversed(seredlist):
-                modify = True
+                modify = True # 修改失败标志位   修改成功改为假
                 while(modify):
-                    newname = input("输入姓名")
-                    newage = input("输入年龄")
-                    newtel = input("输入电话")
+                    newname = input("输入姓名，当前为 %s 回车不修改"%namecard[i]["name"])
+                    if newname == "":
+                        newname=namecard[i]["name"]
+                    newage = input("输入年龄，当前为 %s 回车不修改"%namecard[i]["age"])
+                    if newage == "":
+                        newage = namecard[i]["age"]
+                    newtel = input("输入电话，当前为 %s 回车不修改"%namecard[i]["tel"])
+                    if newtel == "":
+                        newtel = namecard[i]["tel"]
                     if ({"name": newname, "age": newage, "tel": newtel} in namecard):
                         print("列表中存在相同数据，请重新输入")
                     else:
